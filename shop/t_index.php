@@ -8,7 +8,8 @@
 <body>
 <h1>Noodle Shop</h1>
 <table>
-  <?php foreach ($goods as $g) { ?>
+
+<?php foreach ($goods as $g) { ?>
     <tr>
       <td>
         <?php echo img_tag($g['code']) ?>

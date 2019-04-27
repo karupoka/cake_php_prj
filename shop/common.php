@@ -15,9 +15,7 @@ function connect() {
             )
         );
     } catch (PDOException $e) {
-
         $error = $e->getMessage();
-    
     }
 
 }
@@ -32,9 +30,19 @@ function connect() {
 
 
 function img_tag($code) {
-    if (file_exists("images/$code.jpg")) $name = $code;
-    else $name = 'noimage';
-    
+    if (file_exists("images/$code.jpg")) {
+        $name = $code;
+    } else {
+        $name = 'NoImage';
+    };
     return '<img src="images/' . $name . '.jpg" alt="">';
 }
-?>
+
+function img_tag2($code2) {
+    if (file_exists("images2/$code2.jpg")) {
+        $name2 = $code2;
+    } else {
+        $name2 = 'NoImage';
+    };
+    return '<img src="images2/' . $name2 . '.jpg" alt="" width=80px height=80px>';
+}
