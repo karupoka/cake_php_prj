@@ -1,0 +1,61 @@
+###########################
+#####配列に配列を追加する#####
+###########################
+
+
+
+[]を使う方法。
+
+$result = ['one', 'two', 'three'];
+$item = [];
+foreach ($result as $key) {
+    $item[] = $key;
+}
+
+
+
+array_pushを使う方法
+
+$test = ['one'];
+$result = ['two'];
+$hoge = array_push($test, $result, 5);
+
+
+
+array_mergeを使う方法
+*同じキーがある場合、上書きする。
+
+$test = ['one'];
+$result = ['two'];
+$hoge = array_merge($test, $result);
+
+
+
+###########################
+#####連想配列に連想配列を追加#####
+###########################
+
+「+」を使う方法
+$test = [];
+$result = [];
+$test = $test + $result;
+$test += $result;
+
+
+
+
+array_mergeを使う方法
+$test = [];
+$result = [];
+$hoge = array_merge($test, $result);
+
+
+
+
+
+を使う方法
+*一つの要素のみ追加の場合に有効
+
+$result = ['niigata' => 300];
+$result['hokkaido'] = 1000;
+$result['tokyo'] = 20;

@@ -32,8 +32,9 @@ function connect() {
 
 
 function img_tag($code) {
-if (file_exists("images/$code.jpg")) $name = $code;
-else $name = 'noimage';
-return '<img src="images/' . $name . '.jpg" alt="">';
+    if (file_exists("images/$code.jpg")) $name = $code;
+    else $name = 'noimage';
+    
+    return '<img src="images/' . $name . '.jpg" alt="">';
 }
 ?>
