@@ -1,0 +1,30 @@
+### PHP デバッグコード
+file_put_contents("/tmp/test.log","### START oguri " . date("Y/m/d H:i:s ") . __FILE__ . "(line ".__LINE__.")↓↓↓\n",FILE_APPEND);
+file_put_contents("/tmp/test.log", print_r($userInfo, true) ."\n",FILE_APPEND);
+file_put_contents("/tmp/test.log","### E N D oguri " . date("Y/m/d H:i:s ") . __FILE__ . "(line ".__LINE__.")↑↑↑\n\n",FILE_APPEND);
+file_put_contents("/tmp/test.log","### START oguri " . date("Y/m/d H:i:s ") . __FILE__ . "(line ".__LINE__.")↓↓↓\n",FILE_APPEND);
+file_put_contents("/tmp/test.log", print_r("test", true) ."\n",FILE_APPEND);
+file_put_contents("/tmp/test.log","### E N D oguri " . date("Y/m/d H:i:s ") . __FILE__ . "(line ".__LINE__.")↑↑↑\n\n",FILE_APPEND);
+### html ctp用
+<?php file_put_contents("/tmp/test.log","### START oguri " . date("Y/m/d H:i:s ") . __FILE__ . "(line ".__LINE__.")↓↓↓\n",FILE_APPEND); ?>
+<?php file_put_contents("/tmp/test.log", print_r($userInfo, true) ."\n",FILE_APPEND); ?>
+<?php file_put_contents("/tmp/test.log","### E N D oguri " . date("Y/m/d H:i:s ") . __FILE__ . "(line ".__LINE__.")↑↑↑\n\n",FILE_APPEND); ?>
+### afw-manage-app ログ関連
+tail -f /var/log/app/afw-manage-app/afw_logs_`date +%Y-%m-%d`.log
+tail -f /var/log/app/afw-manage-app/batch_logs_`date +%Y-%m-%d`.log
+tail -f /var/log/app/afw-manage-app/history_tracking_logs_`date +%Y-%m-%d`.log
+### afw-back-app ログ関連
+tail -f /var/log/app/afw-back-app/afw_logs_`date +%Y-%m-%d`.log
+tail -f /var/log/app/afw-back-app/batch_logs_`date +%Y-%m-%d`.log
+tail -f /var/log/app/afw-back-app/history_tracking_logs_`date +%Y-%m-%d`.log
+### afw-front-app ログ関連
+tail -f /var/log/app/afw-front-app/afw_logs_`date +%Y-%m-%d`.log
+tail -f /var/log/app/afw-front-app/batch_logs_`date +%Y-%m-%d`.log
+tail -f /var/log/app/afw-front-app/history_tracking_logs_`date +%Y-%m-%d`.log
+
+
+
+MAC版
+file_put_contents("./tmp/test.log","### START oguri " . date("Y/m/d H:i:s ") . __FILE__ . "(line ".__LINE__.")↓↓↓n",FILE_APPEND);
+file_put_contents("./tmp/test.log", print_r($stmt, true) ."n",FILE_APPEND);
+file_put_contents("./tmp/test.log","### E N D oguri " . date("Y/m/d H:i:s ") . __FILE__ . "(line ".__LINE__.")↑↑↑n",FILE_APPEND);
