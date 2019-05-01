@@ -28,9 +28,12 @@ if (isset($_POST["login"])) {
         // 3. エラー処理
         try {
             $pdo = new PDO($dsn, $db['user'], $db['pass'], array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
-
             $stmt = $pdo->prepare('SELECT * FROM userData WHERE name = ?');
             $stmt->execute(array($userid));
+            file_put_contents("./tmp/test.log","### START oguri " . date("Y/m/d H:i:s ") . __FILE__ . "(line ".__LINE__.")↓↓↓\n",FILE_APPEND);
+            file_put_contents("./tmp/test.log", print_r($stmt, true) ."\n",FILE_APPEND);
+            file_put_contents("./tmp/test.log","### E N D oguri " . date("Y/m/d H:i:s ") . __FILE__ . "(line ".__LINE__.")↑↑↑\n",FILE_APPEND);
+
 
             $password = $_POST["password"];
 
@@ -118,7 +121,7 @@ if (isset($_POST['login2'])) {
             <fieldset>
                 <legend>ログインフォーム</legend>
                 <div><font color="#ff0000"><?php echo htmlspecialchars($errorMessage, ENT_QUOTES); ?></font></div>
-                <label for="userid">ユーザーID</label><input type="text" id="userid" name="userid" placeholder="ユーザーIDを入力" value="<?php if (!empty($_POST["userid"])) {echo htmlspecialchars($_POST["userid"], ENT_QUOTES);} ?>">
+                <label for="userid">ユーザーID</label><input type="text" id="userid" name="userid" placeholder="ユーザーIDを入力" value="">
                 <br>
                 <label for="password">パスワード</label><input type="password" id="password" name="password" value="" placeholder="パスワードを入力">
                 <br>
